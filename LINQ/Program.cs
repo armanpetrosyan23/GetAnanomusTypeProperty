@@ -47,7 +47,7 @@ namespace LINQ
                     .GetProperties()[0]
                     .GetValue(item));
             }
-            Console.ReadLine();
+
         }
 
     }
