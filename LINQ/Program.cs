@@ -36,18 +36,19 @@ namespace LINQ
 
 
             var collection = GetProjectedSubset(itemsInStock);
-
+            int index = 0;
+            //Get anonymous object property and value
             foreach (var item in collection)
             {
-                //Get anonymous object property and value
-                Console.WriteLine(item.GetType()
-                    .GetProperties()[0]
-                    .Name + " " +
-                    item.GetType()
-                    .GetProperties()[0]
-                    .GetValue(item));
-            }
+                PropertyInfo[] properties = item.GetType().GetProperties();
 
+                foreach (PropertyInfo property in properties)
+                {
+                    Console.WriteLine(property.Name + " " + property.GetValue(item));
+                }
+                Console.WriteLine($"Object N_{index++}");
+            }
+            Console.ReadLine();
         }
 
     }
